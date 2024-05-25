@@ -17,7 +17,7 @@ const Edit = () => {
     const navigate=useNavigate()
 
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/getone/${id}`)
+        axios.get(`http://localhost:8001/api/getone/${id}`)
         .then((response)=>{
            setUser(response.data)
         }).catch((error)=>[
@@ -34,7 +34,7 @@ const Edit = () => {
 
     const submitForm=async(e)=>{
         e.preventDefault()
-        await axios.put(`http://localhost:8000/api/update/${id}`,user)
+        await axios.put(`http://localhost:8001/api/update/${id}`,user)
         .then((response)=>{
           toast.success(response.data.msg,{position:"top-right"})
           navigate('/')

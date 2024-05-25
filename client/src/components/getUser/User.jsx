@@ -9,14 +9,14 @@ const User = () => {
 
     useEffect(()=>{
         const fetchData=async()=>{
-           const response= await axios.get('http://localhost:8000/api/getall')
+           const response= await axios.get('http://localhost:8001/api/getall')
            setUsers(response.data)
         }
         fetchData()
     },[])
 
     const deleteUser=async(userId)=>{
-            await axios.delete(`http://localhost:8000/api/delete/${userId}`)
+            await axios.delete(`http://localhost:8001/api/delete/${userId}`)
             .then((response)=>{
               setUsers((prevUser)=> prevUser.filter((user)=>user._id!==userId))
               toast.success(response.data.msg,{position:'top-right'})
